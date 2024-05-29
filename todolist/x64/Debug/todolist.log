@@ -1,7 +1,7 @@
-﻿  main.c
-  renderTitle.c
-C:\Users\dldks\OneDrive\바탕 화면\Tetris\todolist\renderTitle.c(19,3): warning C4013: 'system'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
-C:\Users\dldks\OneDrive\바탕 화면\Tetris\todolist\renderTitle.c(22,3): warning C4013: 'gotoxy'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
-  코드를 생성하고 있습니다...
-C:\Users\dldks\OneDrive\바탕 화면\Tetris\todolist\renderTitle.c(59): warning C4715: 'renderTitle': 모든 제어 경로에서 값을 반환하지는 않습니다.
-  todolist.vcxproj -> C:\Users\dldks\OneDrive\바탕 화면\Tetris\todolist\x64\Debug\todolist.exe
+﻿  renderLogin.c
+C:\Users\dldks\OneDrive\바탕 화면\todolist\todolist\renderLogin.c(6,2): warning C4013: 'gotoxy'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\dldks\OneDrive\바탕 화면\todolist\todolist\renderLogin.c(7,2): warning C4013: 'printf'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\dldks\OneDrive\바탕 화면\todolist\todolist\renderLogin.c(40,7): warning C4013: '_kbhit'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\dldks\OneDrive\바탕 화면\todolist\todolist\renderLogin.c(41,13): warning C4013: '_getch'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\dldks\OneDrive\바탕 화면\todolist\todolist\renderLogin.c(61,6): warning C4013: 'system'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+  todolist.vcxproj -> C:\Users\dldks\OneDrive\바탕 화면\todolist\todolist\x64\Debug\todolist.exe
