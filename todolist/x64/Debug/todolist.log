@@ -1,7 +1,11 @@
-﻿  renderLogin.c
-C:\Users\dldks\OneDrive\바탕 화면\todolist\todolist\renderLogin.c(6,2): warning C4013: 'gotoxy'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
-C:\Users\dldks\OneDrive\바탕 화면\todolist\todolist\renderLogin.c(7,2): warning C4013: 'printf'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
-C:\Users\dldks\OneDrive\바탕 화면\todolist\todolist\renderLogin.c(40,7): warning C4013: '_kbhit'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
-C:\Users\dldks\OneDrive\바탕 화면\todolist\todolist\renderLogin.c(41,13): warning C4013: '_getch'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
-C:\Users\dldks\OneDrive\바탕 화면\todolist\todolist\renderLogin.c(61,6): warning C4013: 'system'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+﻿  renderSignup.c
+C:\Users\dldks\OneDrive\바탕 화면\todolist\todolist\renderSignup.c(22,2): warning C4013: 'gotoxy'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\dldks\OneDrive\바탕 화면\todolist\todolist\renderSignup.c(79,7): warning C4013: '_kbhit'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\dldks\OneDrive\바탕 화면\todolist\todolist\renderSignup.c(80,13): warning C4013: '_getch'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\dldks\OneDrive\바탕 화면\todolist\todolist\renderSignup.c(100,6): warning C4013: 'system'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\dldks\OneDrive\바탕 화면\todolist\todolist\renderSignup.c(8,7): warning C4101: 'inp' :참조되지 않은 지역 변수입니다.
+C:\Users\dldks\OneDrive\바탕 화면\todolist\todolist\renderSignup.c(11,7): warning C4101: 'email' :참조되지 않은 지역 변수입니다.
+C:\Users\dldks\OneDrive\바탕 화면\todolist\todolist\renderSignup.c(12,7): warning C4101: 'pw' :참조되지 않은 지역 변수입니다.
+C:\Users\dldks\OneDrive\바탕 화면\todolist\todolist\renderSignup.c(19,7): warning C4101: 'buffer' :참조되지 않은 지역 변수입니다.
+C:\Users\dldks\OneDrive\바탕 화면\todolist\todolist\renderSignup.c(13,7): warning C4101: 'checkPw' :참조되지 않은 지역 변수입니다.
   todolist.vcxproj -> C:\Users\dldks\OneDrive\바탕 화면\todolist\todolist\x64\Debug\todolist.exe

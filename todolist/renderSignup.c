@@ -1,6 +1,22 @@
+#include <stdio.h>
+
 void renderSignup() {
 	int y = 6;  //커서의 y값을 저장
 	int cursor;   //입력된 키보드 값을 저장
+
+	//들어온 문자를 하나씩 저장 할 문자 변수
+	char inp;
+	//각 정보를 담을 문자배열
+	char name[20];
+	char email[30];
+	char pw[30];
+	char checkPw[30];
+
+	//배열에 문자를 하나씩 저장 할 거기 때문에 인덱스를 저장할 변수 선언
+	int i = 0;
+
+	//정보를 한번에 보내줄 버퍼
+	char buffer[200];
 
 	//맨 처음 호출 되었을때 렌더링
 	gotoxy(77, y);
@@ -85,7 +101,14 @@ void renderSignup() {
 					return;
 				}
 				break;
+				//키보드 위, 아래, 엔터를 제외한 입력이 들어왔을 시
+			default:
+				name[i] = cursor;
+				name[i + 1] = '\0';
+				i++;
+				break;
 			}
+			
 			system("cls");
 			gotoxy(77, y);
 			printf("◀");
@@ -101,6 +124,8 @@ void renderSignup() {
 			printf("└───────────────────────┘");
 			gotoxy(74, 6);
 			printf("│");
+			gotoxy(52, 6);
+			printf("%s", name);
 
 			gotoxy(33, 9);
 			printf("아이디");

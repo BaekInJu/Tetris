@@ -10,6 +10,18 @@ int renderTitle(char ch) {
 	if (menuNum == -1) {
 		menuNum = 1;
 	}
+	gotoxy(54, 4);
+	printf("To Do List");
+	gotoxy(56, 10);
+	printf("로그인\n");
+	gotoxy(55, 12);
+	printf("회원가입\n");
+	gotoxy(55, 14);
+	printf("계정찾기\n");
+	gotoxy(55, 16);
+	printf("종    료\n");
+	gotoxy(66, point);
+	printf("◀");
 
 	switch (ch) {
 		//위쪽 방향키
