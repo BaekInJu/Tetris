@@ -39,4 +39,4 @@ void renderSignup(void);
 void renderFindPw(void);
 
 //회원가입 함수
-void signup(void);
+int signup(void);

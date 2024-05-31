@@ -1,170 +1,224 @@
 #include <stdio.h>
+#include <conio.h>
+#include <windows.h>
+
 
 void renderSignup() {
-	int y = 6;  //Ä¿¼­ÀÇ y°ªÀ» ÀúÀå
-	int cursor;   //ÀÔ·ÂµÈ Å°º¸µå °ªÀ» ÀúÀå
+    int y = 6;  // Ä¿¼­ÀÇ y°ªÀ» ÀúÀå
+    int cursor;  // ÀÔ·ÂµÈ Å°º¸µå °ªÀ» ÀúÀå
 
-	//µé¾î¿Â ¹®ÀÚ¸¦ ÇÏ³ª¾¿ ÀúÀå ÇÒ ¹®ÀÚ º¯¼ö
-	char inp;
-	//°¢ Á¤º¸¸¦ ´ãÀ» ¹®ÀÚ¹è¿­
-	char name[20];
-	char email[30];
-	char pw[30];
-	char checkPw[30];
+    // °¢ Á¤º¸¸¦ ´ãÀ» ¹®ÀÚ¹è¿­
+    char name[30] = { 0 };
+    char email[30] = { 0 };
+    char pw[30] = { 0 };
+    char checkPw[30] = { 0 };
+    //ºñ¹Ð¹øÈ£ *Ç¥½Ã¸¦ À§ÇØ ÇÏ³ª ´õ ¼±¾ð
+    char ptPw[30] = { 0 };
+    char ptChPw[30] = { 0 };
+    int i = 0;   //ÀÎµ¦½º¸¦ 0À¸·Î ÀúÀå
 
-	//¹è¿­¿¡ ¹®ÀÚ¸¦ ÇÏ³ª¾¿ ÀúÀå ÇÒ °Å±â ¶§¹®¿¡ ÀÎµ¦½º¸¦ ÀúÀåÇÒ º¯¼ö ¼±¾ð
-	int i = 0;
+    //È¸¿ø°¡ÀÔ ¿äÃ»ÈÄ Ã³¸® »óÅÂ¸¦ ÀúÀå ÇÒ Á¤¼ö º¯¼ö
+    int status = 0;
+    //1 : ¼º°ø
+    //2 : »ç¿ëÁßÀÎ ÀÌ¸ÞÀÏ
+    //3 : ºñ¹Ð¹øÈ£°¡ ÀÏÄ¡ ÇÏÁö ¾ÊÀ½
+    //4 : ±×¿Ü ¿¹¿Ü
 
-	//Á¤º¸¸¦ ÇÑ¹ø¿¡ º¸³»ÁÙ ¹öÆÛ
-	char buffer[200];
+    // ¸Ç Ã³À½ È£Ãâ µÇ¾úÀ»¶§ ·»´õ¸µ
+    gotoxy(87, y);
+    printf("¢¸");
+    gotoxy(59, 1);
+    printf("È¸¿ø°¡ÀÔ");
+    gotoxy(33, 6);
+    printf("ÀÌ¸§");
+    gotoxy(50, 6);
+    printf("¦¢");
+    gotoxy(50, 5);
+    printf("¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤");
+    gotoxy(50, 7);
+    printf("¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥");
+    gotoxy(84, 6);
+    printf("¦¢");
 
-	//¸Ç Ã³À½ È£Ãâ µÇ¾úÀ»¶§ ·»´õ¸µ
-	gotoxy(77, y);
-	printf("¢¸");
-	gotoxy(59, 1);
-	printf("È¸¿ø°¡ÀÔ");
-	gotoxy(33, 6);
-	printf("ÀÌ¸§");
-	gotoxy(50, 6);
-	printf("¦¢");
-	gotoxy(50, 5);
-	printf("¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤");
-	gotoxy(50, 7);
-	printf("¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥");
-	gotoxy(74, 6);
-	printf("¦¢");
+    gotoxy(33, 9);
+    printf("ÀÌ¸ÞÀÏ");
+    gotoxy(50, 9);
+    printf("¦¢");
+    gotoxy(50, 8);
+    printf("¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤");
+    gotoxy(50, 10);
+    printf("¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥");
+    gotoxy(84, 9);
+    printf("¦¢");
 
-	gotoxy(33, 9);
-	printf("ÀÌ¸ÞÀÏ");
-	gotoxy(50, 9);
-	printf("¦¢");
-	gotoxy(50, 8);
-	printf("¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤");
-	gotoxy(50, 10);
-	printf("¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥");
-	gotoxy(74, 9);
-	printf("¦¢");
+    gotoxy(33, 12);
+    printf("ºñ¹Ð¹øÈ£");
+    gotoxy(50, 12);
+    printf("¦¢");
+    gotoxy(50, 11);
+    printf("¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤");
+    gotoxy(50, 13);
+    printf("¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥");
+    gotoxy(84, 12);
+    printf("¦¢");
 
-	gotoxy(33, 12);
-	printf("ºñ¹Ð¹øÈ£");
-	gotoxy(50, 12);
-	printf("¦¢");
-	gotoxy(50, 11);
-	printf("¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤");
-	gotoxy(50, 13);
-	printf("¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥");
-	gotoxy(74, 12);
-	printf("¦¢");
+    gotoxy(33, 15);
+    printf("ºñ¹Ð¹øÈ£ È®ÀÎ");
+    gotoxy(50, 15);
+    printf("¦¢");
+    gotoxy(50, 14);
+    printf("¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤");
+    gotoxy(50, 16);
+    printf("¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥");
+    gotoxy(84, 15);
+    printf("¦¢");
 
-	gotoxy(33, 15);
-	printf("ºñ¹Ð¹øÈ£ È®ÀÎ");
-	gotoxy(50, 15);
-	printf("¦¢");
-	gotoxy(50, 14);
-	printf("¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤");
-	gotoxy(50, 16);
-	printf("¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥");
-	gotoxy(74, 15);
-	printf("¦¢");
+    gotoxy(60, 18);
+    printf("°¡ÀÔ");
 
-	gotoxy(60, 18);
-	printf("°¡ÀÔ");
+    gotoxy(60, 21);
+    printf("µÚ·Î");
 
-	gotoxy(60, 21);
-	printf("µÚ·Î");
-	
-	
-	while (1) {
-		//Å°º¸µå ÀÔ·ÂÀÌ ÀÖÀ»¶§¸¶´Ù Ä¿¼­°¡ ¿òÁ÷ÀÌ¸ç Àç ·»´õ¸µ
-		if (_kbhit()) {  // Å°º¸µå ÀÔ·ÂÀÌ ÀÖ´ÂÁö È®ÀÎ
-			cursor = _getch();  // ÀÔ·ÂµÈ Å°¸¦ ÀÐÀ½
-			switch (cursor) {
-			case 72:
-				if (y == 6) {
-					continue;
-				}
-				else {
-					y -= 3;
-				}
-				break;
-			case 80:
-				if (y == 21) {
-					continue;
-				}
-				else {
-					y += 3;
-				}
-				break;
-			case 13:
-				if (y == 21) {
-					system("cls");
-					return;
-				}
-				break;
-				//Å°º¸µå À§, ¾Æ·¡, ¿£ÅÍ¸¦ Á¦¿ÜÇÑ ÀÔ·ÂÀÌ µé¾î¿ÔÀ» ½Ã
-			default:
-				name[i] = cursor;
-				name[i + 1] = '\0';
-				i++;
-				break;
-			}
-			
-			system("cls");
-			gotoxy(77, y);
-			printf("¢¸");
-			gotoxy(59, 1);
-			printf("È¸¿ø°¡ÀÔ");
-			gotoxy(33, 6);
-			printf("ÀÌ¸§");
-			gotoxy(50, 6);
-			printf("¦¢");
-			gotoxy(50, 5);
-			printf("¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤");
-			gotoxy(50, 7);
-			printf("¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥");
-			gotoxy(74, 6);
-			printf("¦¢");
-			gotoxy(52, 6);
-			printf("%s", name);
+    while (1) {
+        if (_kbhit()) {  // Å°º¸µå ÀÔ·ÂÀÌ ÀÖ´ÂÁö È®ÀÎ
+            cursor = _getch();  // ÀÔ·ÂµÈ Å°¸¦ ÀÐÀ½
+            if (cursor == 0 || cursor == 224) {
+                // È®Àå Å° ÀÔ·Â Ã³¸® (È­»ìÇ¥ Å° µî)
+                cursor = _getch(); // È®Àå Å°ÀÇ ½ÇÁ¦ °ªÀ» ÀÐÀ½
+                switch (cursor) {
+                case 72: // À§ÂÊ È­»ìÇ¥
+                    if (y > 6) {
+                        gotoxy(87, y);
+                        printf("  "); // ÇöÀç À§Ä¡ÀÇ È­»ìÇ¥ Áö¿ì±â
+                        y -= 3;
+                        i = 0;   //ÀÎµ¦½º ÃÊ±âÈ­
+                    }
+                    break;
+                case 80: // ¾Æ·¡ÂÊ È­»ìÇ¥
+                    if (y < 21) {
+                        gotoxy(87, y);
+                        printf("  "); // ÇöÀç À§Ä¡ÀÇ È­»ìÇ¥ Áö¿ì±â
+                        y += 3;
+                        i = 0;   //ÀÎµ¦½º ÃÊ±âÈ­
+                    }
+                    break;
+                }
+                gotoxy(87, y);
+                printf("¢¸");
+            }
+            else {
+                // ÀÏ¹Ý Å° ÀÔ·Â Ã³¸®
+                switch (cursor) {
+                case 13: // ¿£ÅÍ
+                    if (y == 21) {
+                        system("cls");
 
-			gotoxy(33, 9);
-			printf("¾ÆÀÌµð");
-			gotoxy(50, 9);
-			printf("¦¢");
-			gotoxy(50, 8);
-			printf("¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤");
-			gotoxy(50, 10);
-			printf("¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥");
-			gotoxy(74, 9);
-			printf("¦¢");
+                        return;
+                    }
+                    else if (y == 18) {
+                        status = signup();
+                    }
+                    break;
+                case 8:   //BackSpace°¡ µé¾î¿ÔÀ»¶§ ¸ðµç Ç×¸ñ ÃÊ±âÈ­
+                    printf("%c", cursor);
+                    for (int j = 0; j < sizeof(name); j++) {
+                        name[j] = 0;
+                        email[j] = 0;
+                        pw[j] = 0;
+                        checkPw[j] = 0;
+                        ptPw[j] = 0;
+                        ptChPw[j] = 0;
+                    }
+                    y = 6;
+                    system("cls");
+                    //Àç·»´õ¸µ
+                    gotoxy(87, y);
+                    printf("¢¸");
+                    gotoxy(59, 1);
+                    printf("È¸¿ø°¡ÀÔ");
+                    gotoxy(33, 6);
+                    printf("ÀÌ¸§");
+                    gotoxy(50, 6);
+                    printf("¦¢");
+                    gotoxy(50, 5);
+                    printf("¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤");
+                    gotoxy(50, 7);
+                    printf("¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥");
+                    gotoxy(84, 6);
+                    printf("¦¢");
 
-			gotoxy(33, 12);
-			printf("ºñ¹Ð¹øÈ£");
-			gotoxy(50, 12);
-			printf("¦¢");
-			gotoxy(50, 11);
-			printf("¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤");
-			gotoxy(50, 13);
-			printf("¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥");
-			gotoxy(74, 12);
-			printf("¦¢");
+                    gotoxy(33, 9);
+                    printf("ÀÌ¸ÞÀÏ");
+                    gotoxy(50, 9);
+                    printf("¦¢");
+                    gotoxy(50, 8);
+                    printf("¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤");
+                    gotoxy(50, 10);
+                    printf("¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥");
+                    gotoxy(84, 9);
+                    printf("¦¢");
 
-			gotoxy(33, 15);
-			printf("ºñ¹Ð¹øÈ£ È®ÀÎ");
-			gotoxy(50, 15);
-			printf("¦¢");
-			gotoxy(50, 14);
-			printf("¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤");
-			gotoxy(50, 16);
-			printf("¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥");
-			gotoxy(74, 15);
-			printf("¦¢");
+                    gotoxy(33, 12);
+                    printf("ºñ¹Ð¹øÈ£");
+                    gotoxy(50, 12);
+                    printf("¦¢");
+                    gotoxy(50, 11);
+                    printf("¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤");
+                    gotoxy(50, 13);
+                    printf("¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥");
+                    gotoxy(84, 12);
+                    printf("¦¢");
 
-			gotoxy(60, 18);
-			printf("°¡ÀÔ");
+                    gotoxy(33, 15);
+                    printf("ºñ¹Ð¹øÈ£ È®ÀÎ");
+                    gotoxy(50, 15);
+                    printf("¦¢");
+                    gotoxy(50, 14);
+                    printf("¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤");
+                    gotoxy(50, 16);
+                    printf("¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥");
+                    gotoxy(84, 15);
+                    printf("¦¢");
 
-			gotoxy(60, 21);
-			printf("µÚ·Î");
-		}
-	}
+                    gotoxy(60, 18);
+                    printf("°¡ÀÔ");
+
+                    gotoxy(60, 21);
+                    printf("µÚ·Î");
+                    break;
+                default: // ´Ù¸¥ ÀÔ·ÂÀº ÀÌ¸§¿¡ Ãß°¡
+                    if (y == 6 && strlen(name) < 29) {
+                        name[i] = cursor;
+                        name[i + 1] = '\0';    
+                        gotoxy(52, 6);
+                        printf("%-29s", name);  // ÃÖ´ë 19±ÛÀÚ±îÁö Ç¥½Ã
+                    }
+                    else if (y == 9 && strlen(email) < 29) {
+                        email[i] = cursor;
+                        email[i + 1] = '\0';
+                        gotoxy(52, 9);
+                        printf("%-29s", email);
+                    }
+                    else if (y == 12 && strlen(pw) < 29) {
+                        pw[i] = cursor;
+                        pw[i + 1] = '\0';
+                        ptPw[i] = '*';
+                        ptPw[i + 1] = '\0';
+                        gotoxy(52, 12);
+                        printf("%-29s", ptPw);
+                    }
+                    else if (y == 15 && strlen(checkPw) < 19) {
+                        checkPw[i] = cursor;
+                        checkPw[i + 1] = '\0';
+                        ptChPw[i] = '*';
+                        ptChPw[i + 1] = '\0';
+                        gotoxy(52, 15);
+                        printf("%-29s", ptChPw);
+                    }
+                    i++;
+                    break;
+                }
+            }
+        }
+    }
 }
