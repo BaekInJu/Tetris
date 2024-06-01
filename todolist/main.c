@@ -1,6 +1,7 @@
 #include "head.h"
 
 int main(void) {
+
 	int menuNum;  //초기화면 커서의 위치 값 저장 변수
 	char cursor;  //사용자의 키보드 입력을 저장할 변수
 
