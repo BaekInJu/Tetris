@@ -1,3 +1,3 @@
-int signup() {
-	
+int signup(struct member *mp) {
+
 }

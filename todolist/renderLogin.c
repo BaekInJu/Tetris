@@ -147,8 +147,8 @@ void renderLogin() {
 					i++;
 					break;
 				}
-				}
 			}
-
 		}
+
 	}
+}

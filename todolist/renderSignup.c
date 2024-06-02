@@ -2,16 +2,21 @@
 #include <conio.h>
 #include <windows.h>
 
-
+//회원 정보 구조체 선언
+typedef struct member {
+    char email[30];
+    char name[30];
+    char pw[30];
+    char chPw[30];
+}MEMBER;
 void renderSignup() {
     int y = 6;  // 커서의 y값을 저장
     int cursor;  // 입력된 키보드 값을 저장
+    MEMBER m1 = { "", "", "", "" };;
+    //구조체 포인터 저장
+    MEMBER* pm = &m1;
 
-    // 각 정보를 담을 문자배열
-    char name[30] = { 0 };
-    char email[30] = { 0 };
-    char pw[30] = { 0 };
-    char checkPw[30] = { 0 };
+   
     //비밀번호 *표시를 위해 하나 더 선언
     char ptPw[30] = { 0 };
     char ptChPw[30] = { 0 };
@@ -116,16 +121,16 @@ void renderSignup() {
                         return;
                     }
                     else if (y == 18) {
-                        status = signup();
+                        status = signup(pm);
                     }
                     break;
                 case 8:   //BackSpace가 들어왔을때 모든 항목 초기화
                     printf("%c", cursor);
-                    for (int j = 0; j < sizeof(name); j++) {
-                        name[j] = 0;
-                        email[j] = 0;
-                        pw[j] = 0;
-                        checkPw[j] = 0;
+                    for (int j = 0; j < sizeof(m1.name); j++) {
+                        m1.name[j] = 0;
+                        m1.email[j] = 0;
+                        m1.pw[j] = 0;
+                        m1.chPw[j] = 0;
                         ptPw[j] = 0;
                         ptChPw[j] = 0;
                     }
@@ -187,29 +192,29 @@ void renderSignup() {
                     printf("뒤로");
                     break;
                 default: // 다른 입력은 이름에 추가
-                    if (y == 6 && strlen(name) < 29) {
-                        name[i] = cursor;
-                        name[i + 1] = '\0';    
+                    if (y == 6 && strlen(m1.name) < 29) {
+                        m1.name[i] = cursor;
+                        m1.name[i + 1] = '\0';    
                         gotoxy(52, 6);
-                        printf("%-29s", name);  // 최대 19글자까지 표시
+                        printf("%-29s", m1.name);  // 최대 19글자까지 표시
                     }
-                    else if (y == 9 && strlen(email) < 29) {
-                        email[i] = cursor;
-                        email[i + 1] = '\0';
+                    else if (y == 9 && strlen(m1.email) < 29) {
+                        m1.email[i] = cursor;
+                        m1.email[i + 1] = '\0';
                         gotoxy(52, 9);
-                        printf("%-29s", email);
+                        printf("%-29s", m1.email);
                     }
-                    else if (y == 12 && strlen(pw) < 29) {
-                        pw[i] = cursor;
-                        pw[i + 1] = '\0';
+                    else if (y == 12 && strlen(m1.pw) < 29) {
+                        m1.pw[i] = cursor;
+                        m1.pw[i + 1] = '\0';
                         ptPw[i] = '*';
                         ptPw[i + 1] = '\0';
                         gotoxy(52, 12);
                         printf("%-29s", ptPw);
                     }
-                    else if (y == 15 && strlen(checkPw) < 19) {
-                        checkPw[i] = cursor;
-                        checkPw[i + 1] = '\0';
+                    else if (y == 15 && strlen(m1.chPw) < 19) {
+                        m1.chPw[i] = cursor;
+                        m1.chPw[i + 1] = '\0';
                         ptChPw[i] = '*';
                         ptChPw[i + 1] = '\0';
                         gotoxy(52, 15);

@@ -1,5 +1,4 @@
-﻿  renderLogin.c
-C:\Users\dldks\OneDrive\바탕 화면\todolist\todolist\renderLogin.c(21,2): warning C4013: 'gotoxy'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
-C:\Users\dldks\OneDrive\바탕 화면\todolist\todolist\renderLogin.c(90,16): warning C4013: 'signup'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
-C:\Users\dldks\OneDrive\바탕 화면\todolist\todolist\renderLogin.c(10,7): warning C4101: 'buffer' :참조되지 않은 지역 변수입니다.
+﻿  renderSignup.c
+C:\Users\dldks\OneDrive\바탕 화면\todolist\todolist\renderSignup.c(35,5): warning C4013: 'gotoxy'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\dldks\OneDrive\바탕 화면\todolist\todolist\renderSignup.c(126,34): warning C4013: 'signup'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
   todolist.vcxproj -> C:\Users\dldks\OneDrive\바탕 화면\todolist\todolist\x64\Debug\todolist.exe
