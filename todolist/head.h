@@ -19,13 +19,21 @@
 #define DB_HOST "127.0.0.1"
 #define DB_USER "root"
 #define DB_PASS "asd123"
-#define DB_NAME "phone"
+#define DB_NAME "todolist"
 #define CHOP(x) x[strlen(x) - 1] = ' '  //마지막 엔터를 공백으로 바꿔줄 함수
 
-void gotoxy(int x, int y) {
-	COORD pos = { x,y };
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
-}
+//회원 정보 구조체 선언
+typedef struct member {
+    char email[30];
+    char name[30];
+    char pw[30];
+    char chPw[30];
+}MEMBER;
+
+
+//gotoxy
+void gotoxy(int, int);
+
 //타이틀 화면 렌더 함수
 int renderTitle(char);
 

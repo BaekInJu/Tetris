@@ -1,18 +1,14 @@
 #include <stdio.h>
 #include <conio.h>
 #include <windows.h>
+#include "head.h"
 
-//회원 정보 구조체 선언
-typedef struct member {
-    char email[30];
-    char name[30];
-    char pw[30];
-    char chPw[30];
-}MEMBER;
+
+
 void renderSignup() {
     int y = 6;  // 커서의 y값을 저장
     int cursor;  // 입력된 키보드 값을 저장
-    MEMBER m1 = { "", "", "", "" };;
+    MEMBER m1 = { "", "", "", "" };
     //구조체 포인터 저장
     MEMBER* pm = &m1;
 
@@ -27,7 +23,7 @@ void renderSignup() {
     //1 : 성공
     //2 : 사용중인 이메일
     //3 : 비밀번호가 일치 하지 않음
-    //4 : 그외 예외
+    //4 : 빈칸이 있음
 
     // 맨 처음 호출 되었을때 렌더링
     gotoxy(87, y);
@@ -121,7 +117,29 @@ void renderSignup() {
                         return;
                     }
                     else if (y == 18) {
+                        gotoxy(45, 25);
+                        //이전의 메세지 지우기 
+                        printf("                                         ");
                         status = signup(pm);
+                        //회원가입 요청후 반환 값에 따라 메세지 출력
+                        switch (status) {
+                        case 1:
+                            gotoxy(45, 25);
+                            printf("회원가입 성공");
+                            break;
+                        case 2:
+                            gotoxy(45, 25);
+                            printf("이미 사용중인 이메일입니다.");
+                            break;
+                        case 3:
+                            gotoxy(45, 25);
+                            printf("비밀번호가 일치하지 않습니다.");
+                            break;
+                        case 4:
+                            gotoxy(45, 25);
+                            printf("빈칸이 있습니다.");
+                            break;
+                        }
                     }
                     break;
                 case 8:   //BackSpace가 들어왔을때 모든 항목 초기화
