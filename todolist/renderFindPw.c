@@ -1,6 +1,10 @@
+#include "head.h"
+
 void renderFindPw() {
 	int y = 6;  //커서의 y값을 저장
 	int cursor;   //입력된 키보드 값을 저장
+	MEMBER m1 = { "", "", "", "" };
+	MEMBER* mp = &m1;
 
 	//맨 처음 호출 되었을때 렌더링
 	gotoxy(77, y);

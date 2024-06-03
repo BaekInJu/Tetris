@@ -126,6 +126,9 @@ void renderSignup() {
                         case 1:
                             gotoxy(45, 25);
                             printf("회원가입 성공");
+                            Sleep(2000);
+                            system("cls");
+                            return;
                             break;
                         case 2:
                             gotoxy(45, 25);

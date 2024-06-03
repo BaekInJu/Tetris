@@ -133,6 +133,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="gotoxy.c" />
+    <ClCompile Include="login.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="renderFindPw.c" />
     <ClCompile Include="renderLogin.c" />

@@ -48,3 +48,6 @@ void renderFindPw(void);
 
 //회원가입 함수
 int signup(struct member*);
+
+//로그인 함수
+int login(struct member*);

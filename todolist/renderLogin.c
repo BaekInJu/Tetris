@@ -1,12 +1,13 @@
-#include <stdio.h>
-#include <conio.h>
-#include <Windows.h>
+#include "head.h"
+
 void renderLogin() {
 	int y = 6;  //커서의 y값을 저장
 	int cursor;   //입력된 키보드 값을 저장
 
-	char email[30];
-	char pw[30];
+	MEMBER m1 = { "", "", "", "" };
+	MEMBER* mp = &m1;
+
+	
 	char buffer[70];
 	int i = 0;   //인덱스를 저장하기 위한 변수
 	char ptPw[30];
@@ -87,14 +88,34 @@ void renderLogin() {
 						return;
 					}
 					else if (y == 12) {
-						status = signup();
+						gotoxy(53, 20);
+						//이전의 메세지 지우기 
+						printf("                                         ");
+						status = login(mp);
+						switch (status) {
+						case 1:
+							gotoxy(57, 20);
+							printf("로그인 성공");
+							Sleep(2000);
+							system("cls");
+							return;
+							break;
+						case 2:
+							gotoxy(56, 20);
+							printf("없는 이메일");
+							break;
+						case 3:
+							gotoxy(53, 20);
+							printf("비밀번호 불일치");
+							break;
+						}
 					}
 					break;
 				case 8:   //BackSpace가 들어왔을때 모든 항목 초기화
 					printf("%c", cursor);
-					for (int j = 0; j < sizeof(email); j++) {
-						email[j] = 0;
-						pw[j] = 0;
+					for (int j = 0; j < sizeof(m1.email); j++) {
+						m1.email[j] = 0;
+						m1.pw[j] = 0;
 					}
 					y = 6;
 					system("cls");
@@ -130,15 +151,15 @@ void renderLogin() {
 					printf("뒤로");
 					break;
 				default: // 다른 입력은 이름에 추가
-					if (y == 6 && strlen(email) < 29) {
-						email[i] = cursor;
-						email[i + 1] = '\0';
+					if (y == 6 && strlen(m1.email) < 29) {
+						m1.email[i] = cursor;
+						m1.email[i + 1] = '\0';
 						gotoxy(52, 6);
-						printf("%-29s", email);
+						printf("%-29s", m1.email);
 					}
-					else if (y == 9 && strlen(pw) < 29) {
-						pw[i] = cursor;
-						pw[i + 1] = '\0';
+					else if (y == 9 && strlen(m1.pw) < 29) {
+						m1.pw[i] = cursor;
+						m1.pw[i + 1] = '\0';
 						ptPw[i] = '*';
 						ptPw[i + 1] = '\0';
 						gotoxy(52, 9);
