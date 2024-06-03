@@ -1,3 +1,2 @@
-﻿  renderLogin.c
-C:\Users\dldks\OneDrive\바탕 화면\todolist\todolist\renderLogin.c(11,7): warning C4101: 'buffer' :참조되지 않은 지역 변수입니다.
+﻿  renderFindPw.c
   todolist.vcxproj -> C:\Users\dldks\OneDrive\바탕 화면\todolist\todolist\x64\Debug\todolist.exe

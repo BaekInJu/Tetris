@@ -4,6 +4,7 @@ int main(void) {
 
 	int menuNum;  //초기화면 커서의 위치 값 저장 변수
 	char cursor;  //사용자의 키보드 입력을 저장할 변수
+	boolean login = 0;  // 로그인 된 상태인지 확인하는 변수
 
 	//맨 처음 렌더링
 	gotoxy(54, 4);
@@ -26,6 +27,7 @@ int main(void) {
 				case 1:
 					system("cls");
 					renderLogin();
+					login = 1;
 					break;
 				case 2:
 					system("cls");
@@ -43,6 +45,10 @@ int main(void) {
 				}
 			}
 			menuNum = renderTitle(cursor);   // int renderTitle(사용자 키보드 입력 값);
+		}
+		if (login) {
+			system("cls");
+			renderMain();
 		}
 	}
 	return 0;

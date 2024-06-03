@@ -51,3 +51,9 @@ int signup(struct member*);
 
 //로그인 함수
 int login(struct member*);
+
+//메인페이지 렌더 함수
+void renderMain(void);
+
+//비밀번호 찾기 함수
+int findPw(struct member*);
