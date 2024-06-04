@@ -124,22 +124,22 @@ void renderSignup() {
                         //회원가입 요청후 반환 값에 따라 메세지 출력
                         switch (status) {
                         case 1:
-                            gotoxy(45, 25);
+                            gotoxy(55, 25);
                             printf("회원가입 성공");
                             Sleep(2000);
                             system("cls");
                             return;
                             break;
                         case 2:
-                            gotoxy(45, 25);
+                            gotoxy(50, 25);
                             printf("이미 사용중인 이메일입니다.");
                             break;
                         case 3:
-                            gotoxy(45, 25);
+                            gotoxy(50, 25);
                             printf("비밀번호가 일치하지 않습니다.");
                             break;
                         case 4:
-                            gotoxy(45, 25);
+                            gotoxy(55, 25);
                             printf("빈칸이 있습니다.");
                             break;
                         }

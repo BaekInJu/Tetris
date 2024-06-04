@@ -4,7 +4,7 @@ void renderFindPw() {
 	int y = 6;  //커서의 y값을 저장
 	int cursor;   //입력된 키보드 값을 저장
 	int i = 0;
-	MEMBER m1 = { "", "", "", "" };
+	MEMBER m1 = { 0, "", "", "", "" };
 	MEMBER* mp = &m1;
 
 	int status;
@@ -89,7 +89,7 @@ void renderFindPw() {
 
 						switch (status) {
 						case 1:
-							gotoxy(57, 20);
+							gotoxy(60, 20);
 							printf("%s", m1.pw);
 							Sleep(2000);
 							system("cls");
@@ -100,7 +100,7 @@ void renderFindPw() {
 							printf("없는 이메일");
 							break;
 						case 3:
-							gotoxy(53, 20);
+							gotoxy(56, 20);
 							printf("이름 불일치");
 							break;
 						}

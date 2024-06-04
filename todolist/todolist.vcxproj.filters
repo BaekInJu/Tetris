@@ -45,6 +45,18 @@
     <ClCompile Include="findPw.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="todo.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="profile.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="update.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="delete.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="head.h">

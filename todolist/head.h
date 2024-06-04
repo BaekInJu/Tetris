@@ -7,14 +7,6 @@
 
 #pragma comment(lib, "libmysql.lib")   //추가종속성 직접 입력하는것과 같은 기능
 
-//상하좌우 키값 저장
-#define UP 72
-#define DOWN 80
-#define LEFT 75
-#define RIGHT 77
-#define ENTRE 13
-#define SPACE 32
-
 //mysql 정보
 #define DB_HOST "127.0.0.1"
 #define DB_USER "root"
@@ -24,11 +16,18 @@
 
 //회원 정보 구조체 선언
 typedef struct member {
+    int id;
     char email[30];
     char name[30];
     char pw[30];
     char chPw[30];
 }MEMBER;
+
+//할일 목록 구조체 선언
+typedef struct todo {
+    int id;
+    char content[30];
+}TODO;
 
 
 //gotoxy
@@ -38,7 +37,7 @@ void gotoxy(int, int);
 int renderTitle(char);
 
 //로그인 화면 렌더 함수
-void renderLogin(void);
+struct member renderLogin(void);
 
 //회원가입 렌더 함수
 void renderSignup(void);
@@ -53,7 +52,20 @@ int signup(struct member*);
 int login(struct member*);
 
 //메인페이지 렌더 함수
-void renderMain(void);
+void renderMain(struct member*);
 
 //비밀번호 찾기 함수
 int findPw(struct member*);
+
+//할일 목록 불러오는 함수
+struct todo* todo(struct member*, struct todo[], struct todo*, int*);
+
+//프로필 함수
+void profile(struct memebr*);
+
+//업데이트 함수
+int update(struct member*);
+
+//계정 삭제 함수
+void delete(struct member*);
+

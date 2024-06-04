@@ -17,6 +17,8 @@ int login(struct member *mp) {
 	while ((row = mysql_fetch_row(result)) != NULL) {
 		if (!strcmp(mp->email, row[1])) {
 			if (!strcmp(mp->pw, row[3])) {
+				mp->id = row[0];
+				strcpy(mp->name, row[2]);
 				return 1;
 			}
 			else {

@@ -1,6 +1,6 @@
 #include "head.h"
 
-void renderLogin() {
+struct member renderLogin(int* cp) {
 	int y = 6;  //커서의 y값을 저장
 	int cursor;   //입력된 키보드 값을 저장
 
@@ -47,6 +47,7 @@ void renderLogin() {
 
 	gotoxy(59, 12);
 	printf("로그인");
+
 	gotoxy(60, 15);
 	printf("뒤로");
 
@@ -84,8 +85,8 @@ void renderLogin() {
 				case 13: // 엔터
 					if (y == 15) {
 						system("cls");
-
-						return;
+						*cp = 0;
+						return m1;
 					}
 					else if (y == 12) {
 						gotoxy(53, 20);
@@ -96,9 +97,10 @@ void renderLogin() {
 						case 1:
 							gotoxy(57, 20);
 							printf("로그인 성공");
+							*cp = 1;
 							Sleep(2000);
 							system("cls");
-							return;
+							return m1;
 							break;
 						case 2:
 							gotoxy(56, 20);

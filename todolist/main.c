@@ -2,13 +2,14 @@
 
 int main(void) {
 
-	int menuNum;  //초기화면 커서의 위치 값 저장 변수
+	int menuNum = 0;  //초기화면 커서의 위치 값 저장 변수
 	char cursor;  //사용자의 키보드 입력을 저장할 변수
 	boolean login = 0;  // 로그인 된 상태인지 확인하는 변수
+	struct member mp;
 
 	//맨 처음 렌더링
-	gotoxy(54, 4);
-	printf("To Do List");
+	gotoxy(52, 4);
+	printf("Member Manager");
 	gotoxy(56, 10);
 	printf("로그인\n");
 	gotoxy(55, 12);
@@ -26,8 +27,7 @@ int main(void) {
 				switch (menuNum) {
 				case 1:
 					system("cls");
-					renderLogin();
-					login = 1;
+					mp = renderLogin(&login);
 					break;
 				case 2:
 					system("cls");
@@ -48,7 +48,19 @@ int main(void) {
 		}
 		if (login) {
 			system("cls");
-			renderMain();
+			profile(&mp, &login);
+			gotoxy(52, 4);
+			printf("Member Manager");
+			gotoxy(56, 10);
+			printf("로그인\n");
+			gotoxy(55, 12);
+			printf("회원가입\n");
+			gotoxy(55, 14);
+			printf("계정찾기\n");
+			gotoxy(55, 16);
+			printf("종    료\n");
+			gotoxy(66, 10);
+			printf("◀");
 		}
 	}
 	return 0;
