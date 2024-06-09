@@ -137,14 +137,16 @@
     <ClCompile Include="gotoxy.c" />
     <ClCompile Include="login.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="option.c" />
     <ClCompile Include="profile.c" />
     <ClCompile Include="renderFindPw.c" />
     <ClCompile Include="renderLogin.c" />
+    <ClCompile Include="renderLoginTitle.c" />
     <ClCompile Include="renderMain.c" />
     <ClCompile Include="renderSignup.c" />
     <ClCompile Include="renderTitle.c" />
     <ClCompile Include="signup.c" />
-    <ClCompile Include="todo.c" />
+    <ClCompile Include="getTodo.c" />
     <ClCompile Include="update.c" />
   </ItemGroup>
   <ItemGroup>

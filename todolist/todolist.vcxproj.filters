@@ -45,7 +45,7 @@
     <ClCompile Include="findPw.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="todo.c">
+    <ClCompile Include="getTodo.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="profile.c">
@@ -55,6 +55,12 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="delete.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="renderLoginTitle.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="option.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

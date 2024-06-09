@@ -1,2 +1,5 @@
-﻿  renderFindPw.c
+﻿  main.c
+C:\Users\dldks\OneDrive\바탕 화면\todolist\todolist\main.c(22,22): warning C4087: 'renderLogin': 'void' 매개 변수 목록을 사용하여 선언되었습니다.
+C:\Users\dldks\OneDrive\바탕 화면\todolist\todolist\main.c(47,16): warning C4133: '함수': 'member *'과(와) 'memebr *' 사이의 형식이 호환되지 않습니다.
+C:\Users\dldks\OneDrive\바탕 화면\todolist\todolist\main.c(5,7): warning C4101: 'cursor' :참조되지 않은 지역 변수입니다.
   todolist.vcxproj -> C:\Users\dldks\OneDrive\바탕 화면\todolist\todolist\x64\Debug\todolist.exe

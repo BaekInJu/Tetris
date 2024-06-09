@@ -7,10 +7,17 @@
 
 #pragma comment(lib, "libmysql.lib")   //추가종속성 직접 입력하는것과 같은 기능
 
+//방향키
+#define UP 72
+#define DOWN 80
+#define LEFT 75
+#define RIGHT 77
+#define ENTER 13
+
 //mysql 정보
 #define DB_HOST "127.0.0.1"
 #define DB_USER "root"
-#define DB_PASS "asd123"
+#define DB_PASS "1234"
 #define DB_NAME "todolist"
 #define CHOP(x) x[strlen(x) - 1] = ' '  //마지막 엔터를 공백으로 바꿔줄 함수
 
@@ -23,10 +30,14 @@ typedef struct member {
     char chPw[30];
 }MEMBER;
 
+
 //할일 목록 구조체 선언
 typedef struct todo {
     int id;
-    char content[30];
+    int member_id;
+    char title[30];
+    char content[350];
+    char until[30];
 }TODO;
 
 
@@ -58,14 +69,23 @@ void renderMain(struct member*);
 int findPw(struct member*);
 
 //할일 목록 불러오는 함수
-struct todo* todo(struct member*, struct todo[], struct todo*, int*);
+struct todo* getTodo(struct member*, struct member[]);
 
 //프로필 함수
-void profile(struct memebr*);
+void profile(struct memebr*, int*);
 
 //업데이트 함수
 int update(struct member*);
 
 //계정 삭제 함수
 void delete(struct member*);
+
+//로그인된 타이틀 화면
+int renderLoginTitle(struct member*, int);
+
+//옵션 함수
+void option(void);
+
+
+
 

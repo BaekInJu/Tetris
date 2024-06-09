@@ -3,6 +3,16 @@ ppt
 
 file io
 database io 
+지금까지 배운내용 포함
 포함
 
 01083548520
+
+1. todolist
+2. paging
+3. 설정 ( fileio를 통해 id에 대한 설정값 적용)
+	글자 색, 노래, 메인 화면 스타일
+
+로그인전 모든 로직 완료
+
+로그인 후 option과 메인화면 구현 ㄱㄱ

@@ -74,8 +74,8 @@ void profile(struct member* mpp, int* cp) {
 	gotoxy(60, 18);
 	printf("삭제");
 
-	gotoxy(59, 21);
-	printf("로그아웃");
+	gotoxy(60, 21);
+	printf("뒤로");
 
 	gotoxy(52, 6);
 	while (1) {
@@ -111,7 +111,6 @@ void profile(struct member* mpp, int* cp) {
 				case 13: // 엔터
 					if (y == 21) {
 						system("cls");
-						*cp = 0;    //로그아웃상태로 전화
 						return;
 					}
 					else if (y == 18) {
@@ -207,8 +206,8 @@ void profile(struct member* mpp, int* cp) {
 					gotoxy(60, 18);
 					printf("삭제");
 
-					gotoxy(59, 21);
-					printf("로그아웃");
+					gotoxy(60, 21);
+					printf("뒤로");
 					break;
 				default: // 다른 입력은 이름에 추가
 					if (y == 6 && strlen(m2.email) < 29) {
