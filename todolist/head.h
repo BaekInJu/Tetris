@@ -40,6 +40,15 @@ typedef struct todo {
     char until[30];
 }TODO;
 
+//메제시 구조체 선언
+typedef struct message {
+    int id;
+    int sender_id;
+    int receiver_id;
+    char reciever[30];
+    char content[100];
+}MESSAGE;
+
 
 //gotoxy
 void gotoxy(int, int);
@@ -85,6 +94,12 @@ int renderLoginTitle(struct member*, int);
 
 //옵션 함수
 void option(void);
+
+//대화 기록 가져오기 함수
+void getRecord(struct member*, struct message*, int *);
+
+//회원들 가져오기 함수
+void getMembers(struct member*, int *);
 
 
 

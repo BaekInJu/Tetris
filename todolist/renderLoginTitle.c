@@ -4,8 +4,8 @@ int renderLoginTitle(struct member *mp, char ch) {
 	int y = 10;
 	char cursor;
 	
-	gotoxy(54, 4);
-	printf("To Do List");
+	gotoxy(53, 4);
+	printf("Member Manager");
 	gotoxy(52, 6);
 	printf("%s´Ô ¾È³çÇÏ¼¼¿ä!", mp->name);
 	gotoxy(55, 10);

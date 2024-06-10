@@ -134,6 +134,8 @@
   <ItemGroup>
     <ClCompile Include="delete.c" />
     <ClCompile Include="findPw.c" />
+    <ClCompile Include="getMember.c" />
+    <ClCompile Include="getRecord.c" />
     <ClCompile Include="gotoxy.c" />
     <ClCompile Include="login.c" />
     <ClCompile Include="main.c" />

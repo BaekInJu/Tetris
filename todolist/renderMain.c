@@ -1,26 +1,30 @@
 #include "head.h"
 
 void renderMain(struct member *mp) {
+	MEMBER members[100] = { 0 };
+	int recordNum = 0;
+	int membersNum = 0;
 	int y = 10;
-	char cursor;
 
-	TODO todo[100] = {0};
-	TODO* to;
-	to = getTodo(&mp, todo);
-	gotoxy(54, 4);
-	printf("To Do List");
-	gotoxy(52, 6);
-	printf("%s", to->title);
-	gotoxy(55, 10);
-	printf("메인화면\n");
-	gotoxy(55, 12);
-	printf("계정설정\n");
-	gotoxy(55, 14);
-	printf("로그아웃\n");
-	gotoxy(55, 16);
-	printf("설    정\n");
-	gotoxy(55, 18);
-	printf("종    료\n");
-	gotoxy(66, y);
+	getMembers(members, &membersNum);
+	gotoxy(53, 4);
+	printf("Member Manager");
+	gotoxy(80, y);
 	printf("◀");
+	gotoxy(60, 21);
+	printf("뒤로");
+
+	for (int i = 0; i < membersNum; i++) {
+		gotoxy(33, y);
+		printf("이메일 : %s", members[i].email);
+		gotoxy(70, y);
+		printf("이름 : %s", members[i].name);
+		y++;
+	}
+	while (1) {
+		//키보드 입력이 있을때마다 커서가 움직이며 재 렌더링
+		if (_kbhit()) {  // 키보드 입력이 있는지 확인
+			return;
+		}
+	}
 }

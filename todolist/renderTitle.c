@@ -5,8 +5,8 @@ int renderTitle(char ch) {
 	int y = 10;
 	char cursor;
 	
-	gotoxy(54, 4);
-	printf("To Do List");
+	gotoxy(53, 4);
+	printf("Member Manager");
 	gotoxy(56, 10);
 	printf("·Î±×ÀÎ\n");
 	gotoxy(55, 12);
